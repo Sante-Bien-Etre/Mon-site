@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Santé et Bien Être</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f8f7;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg,#0f766e,#14b8a6);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    .slogan {
+      font-size: 20px;
+      margin-top: 10px;
+      font-weight: 300;
+    }
+
+    .box {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      margin-top: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+      transition: 0.2s;
+    }
+
+    .facebook {
+      background: #1877F2;
+    }
+
+    .whatsapp {
+      background: #25D366;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+      transform: scale(1.03);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0f766e;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🌿 Santé et Bien Être</h1>
+  <p class="slogan">✅ Créons ensemble quelque chose d’unique.<br>
+    Des solutions sur mesure, pensées pour vous et votre succès.
+  </p>
+</header>
+
+<section>
+
+  <div class="box">
+    <h2>Bienvenue</h2>
+    <p>
+      Nous vous accompagnons dans votre parcours vers une meilleure santé et un bien-être durable.
+      Conseils naturels, motivation quotidienne et accompagnement personnalisé pour votre succès.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Contactez-nous</h2>
+    <p>Suivez-nous ou discutez directement avec nous :</p>
+
+    <a class="btn facebook" href="https://www.facebook.com/profile.php?id=100076231627033" target="_blank">
+      📘 Page Facebook
+    </a>
+
+    <a class="btn whatsapp" href="https://wa.me/229708632565" target="_blank">
+      📲 WhatsApp Business
+    </a>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2025 – Santé et Bien Être | Tous droits réservés
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sante et Bien Être | Santé Naturelle & Bien-Être Holistique</title>
+    <meta name="description" content="Découvrez une approche naturelle de la santé et du bien-être. Prévention, nutrition, équilibre mental et ressources gratuites pour votre santé globale.">
+    <meta name="keywords" content="santé naturelle, bien-être, prévention, nutrition, équilibre mental, détox, santé holistique">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: "#8BC34A",
+                            DEFAULT: "#689F38",
+                            dark: "#558B2F"
+                        },
+                        secondary: {
+                            light: "#F5E9D4",
+                            DEFAULT: "#E6D5B8",
+                            dark: "#D4C4A8"
+                        },
+                        accent: {
+                            light: "#81C784",
+                            DEFAULT: "#4CAF50",
+                            dark: "#388E3C"
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Montserrat', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif']
+                    },
+                    spacing: {
+                        '128': '32rem',
+                        '144': '36rem'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #E6D5B8 0%, #F5E9D4 50%, #FFFFFF 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .section-padding {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        @media (max-width: 768px) {
+            .section-padding {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+        }
+        
+        /* Styles pour la navigation active */
+        .nav-link.active {
+            color: #689F38;
+            font-weight: 600;
+        }
+        .nav-link.active::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #689F38;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body class="smooth-scroll font-sans text-gray-700 bg-white">
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4">
+            <nav class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2 no-underline">
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">S</span>
+                    </div>
+                    <span class="text-xl font-bold text-primary-dark">Sante et <span class="text-accent">Bien Être</span></span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-primary transition-colors active">Accueil</a>
+                    <a href="#apropos" class="nav-link text-gray-700 hover:text-primary transition-colors">À propos</a>
+                    <a href="blog.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Blog Santé</a>
+                    <a href="services.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Services</a>
+                    <a href="#temoignages" class="nav-link text-gray-700 hover:text-primary transition-colors">Témoignages</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Contact</a>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button onclick="openNewsletterModal()" class="px-4 py-2 bg-primary text-white rounded-full hover:bg-primary-dark transition-colors">
+                        Newsletter
+                    </button>
+                    <a href="contact.html#rdv" class="px-4 py-2 bg-accent text-white rounded-full hover:bg-accent-dark transition-colors no-underline">
+                        Prendre RDV
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuButton" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </nav>
+
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg rounded-lg mt-2 p-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-primary py-2">Accueil</a>
+                    <a href="#apropos" class="nav-link text-gray-700 hover:text-primary py-2">À propos</a>
+                    <a href="blog.html" class="nav-link text-gray-700 hover:text-primary py-2">Blog Santé</a>
+                    <a href="services.html" class="nav-link text-gray-700 hover:text-primary py-2">Services</a>
+                    <a href="#temoignages" class="nav-link text-gray-700 hover:text-primary py-2">Témoignages</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-primary py-2">Contact</a>
+                    <div class="pt-4 border-t">
+                        <button onclick="openNewsletterModal()" class="w-full px-4 py-2 bg-primary text-white rounded-full hover:bg-primary-dark transition-colors mb-2">
+                            Newsletter
+                        </button>
+                        <a href="contact.html#rdv" class="w-full px-4 py-2 bg-accent text-white rounded-full hover:bg-accent-dark transition-colors no-underline block text-center">
+                            Prendre RDV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero-gradient section-padding">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-800 mb-6">
+                        Votre santé naturelle,<br>
+                        <span class="text-primary">réinventée</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Rejoignez notre communauté de <span class="font-bold text-accent">9 600 passionnés</span> de bien-être. 
+                        Découvrez une approche holistique de la santé, alliant prévention, nutrition et équilibre mental.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button onclick="openNewsletterModal()" class="px-8 py-3 bg-primary text-white rounded-full hover:bg-primary-dark transition-colors text-lg font-semibold">
+                            Commencer gratuitement
+                        </button>
+                        <a href="services.html" class="px-8 py-3 border-2 border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-colors text-lg font-semibold text-center no-underline">
+                            Découvrir nos services
+                        </a>
+                    </div>
+                    <div class="mt-12 flex items-center space-x-4">
+                        <div class="flex -space-x-2">
+                            <img src="images/avatar1.jpg" alt="Membre" class="w-10 h-10 rounded-full border-2 border-white object-cover">
+                            <img src="images/avatar2.jpg" alt="Membre" class="w-10 h-10 rounded-full border-2 border-white object-cover">
+                            <img src="images/avatar3.jpg" alt="Membre" class="w-10 h-10 rounded-full border-2 border-white object-cover">
+                        </div>
+                        <div class="text-gray-600">
+                            <span class="font-bold">+9 600 membres</span> dans notre communauté
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <img 
+                        src="images/hero-yoga.jpg" 
+                        alt="Personne pratiquant le yoga dans la nature" 
+                        class="rounded-2xl shadow-xl w-full h-auto"
+                        loading="lazy"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="apropos" class="bg-secondary-light section-padding">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-800 mb-4">Notre mission</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Guider chaque individu vers un équilibre de vie optimal grâce à des approches naturelles et scientifiquement validées.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 card-hover">
+                    <div class="w-16 h-16 rounded-full bg-primary-light flex items-center justify-center mb-6">
+                        <i class="fas fa-heartbeat text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Prévention active</h3>
+                    <p class="text-gray-600">
+                        Nous croyons en une médecine préventive qui agit en amont des problèmes de santé, 
+                        en renforçant les défenses naturelles de l'organisme.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 card-hover">
+                    <div class="w-16 h-16 rounded-full bg-secondary flex items-center justify-center mb-6">
+                        <i class="fas fa-leaf text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Approche naturelle</h3>
+                    <p class="text-gray-600">
+                        Notre expertise s'appuie sur des méthodes douces et naturelles, 
+                        respectueuses du corps et de l'environnement.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 card-hover">
+                    <div class="w-16 h-16 rounded-full bg-accent-light flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Accompagnement personnalisé</h3>
+                    <p class="text-gray-600">
+                        Chaque parcours est unique. Nous adaptons nos conseils à vos besoins spécifiques 
+                        pour des résultats durables.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-16 bg-white rounded-2xl p-8 md:p-12">
+                <div class="flex flex-col lg:flex-row items-center">
+                    <div class="lg:w-2/3 mb-8 lg:mb-0 lg:pr-12">
+                        <h3 class="text-2xl font-serif font-bold text-gray-800 mb-6">Notre expertise</h3>
+                        <p class="text-gray-600 mb-6">
+                            Forts de 15 ans d'expérience dans le domaine de la santé naturelle, 
+                            notre équipe de professionnels certifiés vous accompagne avec bienveillance 
+                            et expertise. Nous combinons les savoirs traditionnels aux dernières 
+                            avancées scientifiques pour une approche complète du bien-être.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span>Nutrition holistique</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span>Gestion du stress</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span>Médecine préventive</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span>Phytothérapie</span>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <a href="services.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
+                                Voir tous nos services
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3">
+                        <img 
+                            src="images/equipe-experts.jpg" 
+                            alt="Équipe d'experts en santé naturelle" 
+                            class="rounded-xl w-full h-auto"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Preview Section -->
+    <section id="blog-preview" class="section-padding">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-800 mb-4">Derniers articles du blog</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Découvrez nos articles experts sur la nutrition, l'équilibre mental, le sport et la détox.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <img 
+                        src="images/blog-nutrition.jpg" 
+                        alt="Nutrition équilibrée" 
+                        class="w-full h-48 object-cover"
+                        loading="lazy"
+                    />
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="px-3 py-1 bg-primary-light text-primary rounded-full text-sm font-semibold">Nutrition</span>
+                            <span class="text-gray-500 text-sm ml-4">5 min de lecture</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Les super-aliments pour booster votre immunité</h3>
+                        <p class="text-gray-600 mb-4">
+                            Découvrez 10 aliments naturels qui renforcent votre système immunitaire de manière significative.
+                        </p>
+                        <a href="blog.html#article1" class="text-primary font-semibold hover:text-primary-dark transition-colors inline-flex items-center">
+                            Lire l'article
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <img 
+                        src="images/blog-meditation.jpg" 
+                        alt="Méditation et bien-être mental" 
+                        class="w-full h-48 object-cover"
+                        loading="lazy"
+                    />
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="px-3 py-1 bg-secondary text-primary rounded-full text-sm font-semibold">Mental</span>
+                            <span class="text-gray-500 text-sm ml-4">7 min de lecture</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Techniques de méditation pour réduire le stress</h3>
+                        <p class="text-gray-600 mb-4">
+                            Apprenez des méthodes simples et efficaces pour gérer votre stress au quotidien.
+                        </p>
+                        <a href="blog.html#article2" class="text-primary font-semibold hover:text-primary-dark transition-colors inline-flex items-center">
+                            Lire l'article
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <img 
+                        src="images/blog-sport.jpg" 
+                        alt="Exercice physique en plein air" 
+                        class="w-full h-48 object-cover"
+                        loading="lazy"
+                    />
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="px-3 py-1 bg-accent-light text-accent rounded-full text-sm font-semibold">Sport</span>
+                            <span class="text-gray-500 text-sm ml-4">6 min de lecture</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Sport doux : retrouver la forme sans se blesser</h3>
+                        <p class="text-gray-600 mb-4">
+                            Guide complet pour pratiquer une activité physique adaptée à votre condition.
+                        </p>
+                        <a href="blog.html#article3" class="text-primary font-semibold hover:text-primary-dark transition-colors inline-flex items-center">
+                            Lire l'article
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="blog.html" class="px-8 py-3 border-2 border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-colors text-lg font-semibold no-underline inline-block">
+                    Voir tous les articles
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="ressources" class="bg-secondary-light section-padding">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-800 mb-4">Ressources gratuites</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Téléchargez nos guides pratiques et abonnez-vous à notre newsletter pour recevoir nos conseils exclusifs.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Newsletter Subscription -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mr-4">
+                            <i class="fas fa-envelope-open-text text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Newsletter exclusive</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        Recevez chaque semaine nos conseils santé, recettes healthy et exercices de bien-être directement dans votre boîte mail.
+                    </p>
+                    <form id="newsletterForm" class="space-y-4">
+                        <div>
+                            <input type="email" placeholder="Votre email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="acceptTerms" class="mr-2" required>
+                            <label for="acceptTerms" class="text-sm text-gray-600">
+                                J'accepte de recevoir la newsletter et je comprends que je peux me désabonner à tout moment
+                            </label>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-semibold">
+                            S'abonner gratuitement
+                        </button>
+                    </form>
+                    <p class="text-sm text-gray-500 mt-4">
+                        Déjà <span class="font-bold text-accent">9 600 abonnés</span> satisfaits
+                    </p>
+                </div>
+
+                <!-- Free Resources -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center mr-4">
+                            <i class="fas fa-file-pdf text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Guides gratuits</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-primary transition-colors">
+                            <div class="flex items-center">
+                                <i class="fas fa-download text-primary mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Guide de détox naturelle</h4>
+                                    <p class="text-sm text-gray-600">PDF - 15 pages</p>
+                                </div>
+                            </div>
+                            <button onclick="downloadGuide('detox')" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors text-sm">
+                                Télécharger
+                            </button>
+                        </div>
+
+                        <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-primary transition-colors">
+                            <div class="flex items-center">
+                                <i class="fas fa-download text-primary mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Menu santé sur 7 jours</h4>
+                                    <p class="text-sm text-gray-600">PDF - 12 pages</p>
+                                </div>
+                            </div>
+                            <button onclick="downloadGuide('menu')" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors text-sm">
+                                Télécharger
+                            </button>
+                        </div>
+
+                        <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-primary transition-colors">
+                            <div class="flex items-center">
+                                <i class="fas fa-download text-primary mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Exercices de respiration</h4>
+                                    <p class="text-sm text-gray-600">PDF - 8 pages</p>
+                                </div>
+                            </div>
+                            <button onclick="downloadGuide('respiration')" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors text-sm">
+                                Télécharger
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="temoignages" class="section-padding">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-800 mb-4">Ils nous font confiance</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Découvrez les témoignages de membres de notre communauté qui ont transformé leur santé.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="flex items-center mb-6">
+                        <img 
+                            src="images/temoignage-marie.jpg" 
+                            alt="Marie, 42 ans" 
+                            class="w-16 h-16 rounded-full mr-4 object-cover"
+                            loading="lazy"
+                        />
+                        <div>
+                            <h4 class="font-bold text-gray-800">Marie, 42 ans</h4>
+                            <p class="text-gray-600 text-sm">Suivi depuis 6 mois</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">
+                        "Grâce aux conseils de Sante et Bien Être, j'ai retrouvé mon énergie et amélioré mon sommeil. 
+                        L'approche naturelle a changé ma vie !"
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="flex items-center mb-6">
+                        <img 
+                            src="images/temoignage-pierre.jpg" 
+                            alt="Pierre, 35 ans" 
+                            class="w-16 h-16 rounded-full mr-4 object-cover"
+                            loading="lazy"
+                        />
+                        <div>
+                            <h4 class="font-bold text-gray-800">Pierre, 35 ans</h4>
+                            <p class="text-gray-600 text-sm">Suivi depuis 1 an</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">
+                        "Les ressources gratuites sont exceptionnelles. J'ai pu mettre en place une routine santé 
+                        qui m'a permis de réduire mon stress de manière significative."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="flex items-center mb-6">
+                        <img 
+                            src="images/temoignage-sophie.jpg" 
+                            alt="Sophie, 50 ans" 
+                            class="w-16 h-16 rounded-full mr-4 object-cover"
+                            loading="lazy"
+                        />
+                        <div>
+                            <h4 class="font-bold text-gray-800">Sophie, 50 ans</h4>
+                            <p class="text-gray-600 text-sm">Suivi depuis 3 mois</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-4">
+                        "L'accompagnement personnalisé m'a aidée à traverser une période difficile. 
+                        Je recommande vivement cette approche holistique de la santé."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-primary-dark text-white section-padding">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6">Prêt à transformer votre santé ?</h2>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">
+                    Rejoignez notre communauté et commencez votre voyage vers un bien-être durable dès aujourd'hui.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="contact.html#rdv" class="px-8 py-3 bg-white text-primary-dark rounded-full hover:bg-gray-100 transition-colors text-lg font-semibold text-center no-underline">
+                        Prendre rendez-vous
+                    </a>
+                    <a href="services.html" class="px-8 py-3 border-2 border-white text-white rounded-full hover:bg-white hover:text-primary-dark transition-colors text-lg font-semibold text-center no-underline">
+                        Découvrir nos services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <a href="index.html" class="flex items-center space-x-2 mb-4 no-underline">
+                        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">S</span>
+                        </div>
+                        <span class="text-xl font-bold">Sante et <span class="text-accent">Bien Être</span></span>
+                    </a>
+                    <p class="text-gray-400">
+                        Votre santé naturelle, notre priorité.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Accueil</a></li>
+                        <li><a href="#apropos" class="text-gray-400 hover:text-white transition-colors">À propos</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog Santé</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="services.html#nutrition" class="text-gray-400 hover:text-white transition-colors">Nutrition holistique</a></li>
+                        <li><a href="services.html#stress" class="text-gray-400 hover:text-white transition-colors">Gestion du stress</a></li>
+                        <li><a href="services.html#detox" class="text-gray-400 hover:text-white transition-colors">Programme détox</a></li>
+                        <li><a href="services.html#sport" class="text-gray-400 hover:text-white transition-colors">Activité physique</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-2"></i>
+                            <a href="mailto:contact@santeetbienetre.com" class="text-gray-400 hover:text-white transition-colors">
+                                contact@santeetbienetre.com
+                            </a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-gray-400 mr-2"></i>
+                            <a href="tel:+33123456789" class="text-gray-400 hover:text-white transition-colors">
+                                01 23 45 67 89
+                            </a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gray-400 mr-2 mt-1"></i>
+                            <span class="text-gray-400">123 Avenue du Bien-Être<br>75000 Paris, France</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2024 Sante et Bien Être. Tous droits réservés. | 
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors mx-2">Mentions légales</a> | 
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors mx-2">Politique de confidentialité</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // 1. Gestion du menu mobile
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // 2. Fermer le menu mobile en cliquant sur un lien
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.querySelector('i').classList.remove('fa-times');
+                mobileMenuButton.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // 3. Navigation fluide vers les sections
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // 4. Fonctions pour les modales
+        function openNewsletterModal() {
+            alert("🎯 Fonctionnalité Newsletter\n\nCette fonctionnalité permettrait aux visiteurs de s'inscrire à votre newsletter.\n\nÀ connecter avec : Mailchimp, Sendinblue ou ConvertKit");
+        }
+
+        function openAppointmentModal() {
+            alert("📅 Fonctionnalité Prise de Rendez-vous\n\nCette fonctionnalité permettrait à vos clients de prendre rendez-vous en ligne.\n\nÀ connecter avec : Calendly, Acuity Scheduling ou SimplyMeet");
+        }
+
+        // 5. Gestion du formulaire newsletter
+        const newsletterForm = document.getElementById('newsletterForm');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const emailInput = this.querySelector('input[type="email"]');
+                const termsCheckbox = this.querySelector('#acceptTerms');
+                const submitButton = this.querySelector('button[type="submit"]');
+                
+                if (!emailInput.value) {
+                    alert("Veuillez entrer votre adresse email");
+                    emailInput.focus();
+                    return;
+                }
+                
+                if (!termsCheckbox.checked) {
+                    alert("Veuillez accepter de recevoir la newsletter");
+                    termsCheckbox.focus();
+                    return;
+                }
+                
+                const originalText = submitButton.textContent;
+                submitButton.textContent = "Inscription en cours...";
+                submitButton.disabled = true;
+                
+                setTimeout(() => {
+                    alert(`✅ Merci pour votre inscription avec l'email : ${emailInput.value}\n\nVous recevrez bientôt nos conseils bien-être !`);
+                    newsletterForm.reset();
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                }, 1500);
+            });
+        }
+
+        // 6. Téléchargement des guides
+        function downloadGuide(guideType) {
+            const guides = {
+                'detox': 'Guide de détox naturelle',
+                'menu': 'Menu santé sur 7 jours',
+                'respiration': 'Exercices de respiration'
+            };
+            
+            alert(`📥 Téléchargement simulé : "${guides[guideType]}"\n\nEn production, ce bouton téléchargerait réellement le PDF depuis votre serveur.`);
+        }
+
+        // 7. Navigation active
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary', 'font-semibold', 'active');
+                if (link.getAttribute('href') === `#${current}` || 
+                    (current === 'accueil' && link.getAttribute('href') === 'index.html')) {
+                    link.classList.add('text-primary', 'font-semibold', 'active');
+                }
+            });
+        });
+
+        // 8. Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("✅ Site Sante et Bien Être chargé avec succès !");
+            
+            // Mettre en évidence la page active dans la navigation
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage || 
+                    (currentPage === 'index.html' && link.getAttribute('href') === 'index.html')) {
+                    link.classList.add('text-primary', 'font-semibold', 'active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
